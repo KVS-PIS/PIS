@@ -1,0 +1,43 @@
+1 = ["dashboard\/index","employee\/index","users\/index","profile\/profilelist","vacancy\/index","transfer\/index","swap\/index","users\/add","users\/edit","users\/details","users\/change_status","users\/delete","roles\/index","roles\/add","roles\/details","roles\/change_status","permission\/set_permission","admin/users","master/designation_category","master/designation","master/category","master/region","master/school","master/subject","master/qualification","master/promotions","master/level_range","master/designation_category_details","master/add_designation_category","master/delete_designation_category","master/designation_details","master/add_designation","master/delete_designation"]
+2 = ["dashboard\/index","employee\/index","users\/index","profile\/profilelist","vacancy\/index","transfer\/index","swap\/index","users\/add","users\/edit","users\/details","users\/change_status","users\/delete","roles\/index","roles\/add","roles\/details","roles\/change_status","permission\/set_permission","admin/users","master/designation_category","master/designation","master/category","master/region","master/school","master/subject","master/qualification","master/promotions","master/level_range","master/designation_category_details","master/add_designation_category","master/delete_designation_category","master/designation_details","master/add_designation","master/delete_designation"]
+3 = ["dashboard\/index","employee\/index","users\/index","profile\/profilelist","vacancy\/index","transfer\/index","swap\/index","users\/add","users\/edit","users\/details","users\/change_status","users\/delete","roles\/index","roles\/add","roles\/details","roles\/change_status","permission\/set_permission","admin/users","master/designation_category","master/designation","master/category","master/region","master/school","master/subject","master/qualification","master/promotions","master/level_range","master/designation_category_details","master/add_designation_category","master/delete_designation_category","master/designation_details","master/add_designation","master/delete_designation"]
+4 = ["dashboard\/index","employee\/index","users\/index","profile\/profilelist","vacancy\/index","transfer\/index","swap\/index","users\/add","users\/edit","users\/details","users\/change_status","users\/delete","roles\/index","roles\/add","roles\/details","roles\/change_status","permission\/set_permission","admin/users","master/designation_category","master/designation","master/category","master/region","master/school","master/subject","master/qualification","master/promotions","master/level_range","master/designation_category_details","master/add_designation_category","master/delete_designation_category","master/designation_details","master/add_designation","master/delete_designation"]
+5 = ["dashboard\/index","employee\/index","users\/index","profile\/profilelist","vacancy\/index","transfer\/index","swap\/index","users\/add","users\/edit","users\/details","users\/change_status","users\/delete","roles\/index","roles\/add","roles\/details","roles\/change_status","permission\/set_permission","admin/users","master/designation_category","master/designation","master/category","master/region","master/school","master/subject","master/qualification","master/promotions","master/level_range","master/designation_category_details","master/add_designation_category","master/delete_designation_category","master/designation_details","master/add_designation","master/delete_designation"]
+6 = ["dashboard\/index","employee\/index","users\/index","profile\/profilelist","vacancy\/index","transfer\/index","swap\/index","users\/add","users\/edit","users\/details","users\/change_status","users\/delete","roles\/index","roles\/add","roles\/details","roles\/change_status","permission\/set_permission","admin/users","master/designation_category","master/designation","master/category","master/region","master/school","master/subject","master/qualification","master/promotions","master/level_range","master/designation_category_details","master/add_designation_category","master/delete_designation_category","master/designation_details","master/add_designation","master/delete_designation"]
+7 = ["dashboard\/index","employee\/index","users\/index","profile\/profilelist","vacancy\/index","transfer\/index","swap\/index","users\/add","users\/edit","users\/details","users\/change_status","users\/delete","roles\/index","roles\/add","roles\/details","roles\/change_status","permission\/set_permission","admin/users","master/designation_category","master/designation","master/category","master/region","master/school","master/subject","master/qualification","master/promotions","master/level_range","master/designation_category_details","master/add_designation_category","master/delete_designation_category","master/designation_details","master/add_designation","master/delete_designation"]
+
+
+1 = [
+"dashboard\/index",
+"employee\/index",
+"profile\/ProfileList",
+"vacancy\/index",
+"transfer\/index",
+"swap\/index",
+"users\/index",
+"users\/add",
+"users\/edit",
+"users\/details",
+"users\/change_status",
+"users\/delete",
+"roles\/index",
+"roles\/add",
+"roles\/details",
+"roles\/change_status",
+"permission\/set_permission",
+"admin/users",
+"master/designation_category",
+"master/designation",
+"master/category",
+"master/region",
+"master/school",
+"master/subject",
+"master/qualification",
+"master/promotions",
+"master/level_range",
+"master/designation_category_details",
+"master/add_designation_category",
+"master/delete_designation_category",
+"master/designation_details",
+"master/add_designation",
+"master/delete_designation"]
