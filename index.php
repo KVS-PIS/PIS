@@ -1,6 +1,5 @@
 <?php
-    //phpinfo();
-    session_start();
+session_start();
 /*
     *---------------------------------------------------------------
     * APPLICATION ENVIRONMENT
@@ -11,8 +10,7 @@
     //define('ENVIRONMENT','testing');
     define('ENVIRONMENT','production');
 
-switch (ENVIRONMENT)
-{
+switch (ENVIRONMENT){
 	case 'development':
 		error_reporting(-1);
 		ini_set('display_errors', 1);
