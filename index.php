@@ -1,5 +1,6 @@
 <?php
 session_start();
+//This is to test git. 
 /*
     *---------------------------------------------------------------
     * APPLICATION ENVIRONMENT
