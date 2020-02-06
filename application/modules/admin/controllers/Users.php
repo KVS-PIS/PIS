@@ -204,9 +204,7 @@ class Users extends MY_Controller {
                 }
             }
         }
-
         $view = 'users/add';
-        
         $data = array(
             'title' => WEBSITE_TITLE . ' - Add User',
             'javascripts' => array(),
