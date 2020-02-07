@@ -151,15 +151,13 @@ class User_model extends CI_Model {
     }
 
     public function edit_user($post_data, $id) {
-        $post_data['created'] = date("Y-m-d H:i:s");
-        if($post_data['password'] == ''){
-        unset($post_data['password']);  
-        unset($post_data['cpassword']); 
-        unset($post_data['user_id']); 
-        }
+        $UserData = array(
+            'email_id' =>$post_data['email_id'] ,
+            'updated' => date("Y-m-d H:i:s")
+        );
         $response = array();
         $this->db->where("id", $id);
-        $qry = $this->db->update('users', $post_data);
+        $qry = $this->db->update('users', $UserData);
         if ($qry) {
             $response['status'] = 'success';
         } else {

@@ -1264,3 +1264,19 @@ if(!function_exists('getEmployeeidByEmpcode')){
             }
     }
 }
+
+function rolecategory_lists() {
+    $ci = & get_instance();
+    $ci->db->select('id,name');
+    $ci->db->from('ci_role_category');
+    $ci->db->where("status", 1);
+    $ci->db->order_by('id');
+    $query = $ci->db->get();
+    $result = $query->result_array();
+    $return = array();
+    foreach ($result as $row) {
+        $strtolower = $row['name'];
+        $return[$row['id']] = ucfirst($strtolower);
+    }
+    return $return;
+}
