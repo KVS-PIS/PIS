@@ -43,7 +43,6 @@ class Users extends MY_Controller {
         $post_data = $this->input->post(null, true);
         $search = $this->input->post('search')['value'];
         $response = $this->user_model->get_all_users_list_json($limit, $start, $order, $dir, $search, $post_data);
-        
         $users = isset($response['result']) ? $response['result'] : array();
         $totalFiltered = isset($response['count']) ? $response['count'] : 0;
 
@@ -69,7 +68,7 @@ class Users extends MY_Controller {
             "recordsFiltered" => intval($totalFiltered),
             "data" => $data
         );
-        echo json_encode($json_data);
+        echo json_encode($json_data); 
     }
 
     public function change_status() {
@@ -200,7 +199,7 @@ class Users extends MY_Controller {
                     $this->session->set_flashdata('success', 'User Added Successfully');
                     redirect(base_url('admin/users'));
                 } else {
-                    $view_data['error_msg'] = isset($response['error']) ? $response['error'] : 'User Id or password does not match';
+                    $view_data['error_msg'] = isset($response['error']) ? $response['error'] : 'Form Could not be saved,Please try again';
                 }
             }
         }
@@ -217,11 +216,9 @@ class Users extends MY_Controller {
     public function edit($id = null) {
         if (isset($id) || !empty($id)) {
             $view_data['users'] = $this->user_model->get_user_by_id($id);
+            //print_r($view_data);
         }
         if ($post_data = $this->input->post(null, true)) {
-            $this->form_validation->set_rules('role_id', 'Role Id', 'required|xss_clean|callback_regex_check');
-            $this->form_validation->set_rules('role_category', 'Role Category', 'required|xss_clean|callback_regex_check');
-            $this->form_validation->set_rules('username', 'Username', 'required|xss_clean|callback_check_unique_username|callback_regex_check');
             $this->form_validation->set_rules('password', 'Password', 'xss_clean|callback_regex_check');
             if ($this->form_validation->run($this) !== FALSE) {
                 $response = $this->user_model->edit_user($post_data, $id);

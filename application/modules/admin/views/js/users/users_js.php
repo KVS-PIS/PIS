@@ -30,6 +30,7 @@
             'dataType': 'json',
             'type': 'POST',
             "data": function ( data ) {
+                //console.log(data);
                 data.<?php echo $this->security->get_csrf_token_name(); ?> = "<?php echo $this->security->get_csrf_hash(); ?>";
             }
         },
@@ -42,7 +43,7 @@
                 },
                 { "data": "username" },
                 { "data": "role_name" },
-                { "data": "created" },					
+                { "data": "email" },					
 		{
                     "render": function(data, type, row) {
                         if(row.id=='1'){
@@ -86,9 +87,9 @@
                                 return '<div class="col-md-4 p-0"></div><div class="col-md-4 p-0">'+
                             <?php   if(has_permission('users/details')){    ?>
                                 '<a href="<?php echo site_url();?>admin/users/details/'+row.id+'" data-toggle="tooltip" title="Details"><i class="fa fa-eye" aria-hidden="true"></i></a>'+
-                            <?php   }   if(has_permission('users/edit')){   ?>
+                            <?php   }   if(has_permission('users/edit')){    ?>
                                 '<a href="<?php echo site_url();?>admin/users/edit/'+row.id+'" data-toggle="tooltip" title="Edit"><i class="far fa-edit" aria-hidden="true"></i></a>'+	
-                            <?php   }   if(has_permission('users/delete')){ ?>
+                            <?php   }  if(has_permission('users/delete')){ ?>
                                 '<a href="javascripts:void(0)" data-toggle="tooltip" title="Delete" class="delete_data" user_id="'+row.id+'"><i class="fa fa-trash" aria-hidden="true"></i></a>'+	
                             <?php   }   ?>
                                  '<a href="javascripts:void(0)" data-toggle="tooltip" onclick="change_pass('+row.id+')"><i class="fa fa-lock" aria-hidden="true"></i></a>'+

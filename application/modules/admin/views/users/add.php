@@ -88,7 +88,7 @@
             <div class="form-group col-md-4">
                 <label for="" class="col-sm-12 col-form-label">Email Id:<span class="reqd">*</span></label>
                 <div class="col-sm-12">
-                    <input type="text" name="email_id" value="<?php echo isset($users->email_id) ? set_value('email_id', $users->email_id) : set_value('email_id'); ?>" class="form-control noSpace" maxlength="30" minlength="6" placeholder="Email Id">
+                    <input type="text" name="email_id" value="<?php echo isset($users->email_id) ? set_value('email_id', $users->email_id) : set_value('email_id'); ?>" class="form-control noSpace" maxlength="40" minlength="6" placeholder="Email Id">
                     <span class="error"><?php echo form_error('email_id'); ?></span>
                     <div class="passhint">Only Official Email-Id(ex@gov.in , ex@nic.in, ex@kvs.gov.in)</div>
                 </div>

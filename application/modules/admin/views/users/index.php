@@ -45,7 +45,7 @@
 				<!--<th>Photo</th>-->
 				<th>User Name</th>
 				<th>Role</th>
-				<th>Date/Time</th>
+				<th>Email</th>
 				<th>Status</th>
 				<th>Action</th>
 			  </tr>

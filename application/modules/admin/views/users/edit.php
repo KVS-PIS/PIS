@@ -33,54 +33,34 @@
         <?php } ?>
         <!-- ================================= CREATE USER START =====================================-->
         <?php 
-        echo form_open("", array("id" => "formID", "class" => "register", "autocomplete" => "off")); ?>
+        echo form_open("", array("id" => "form", "class" => "register", "autocomplete" => "off")); ?>
             <input type="hidden" id="user_id" name="user_id" value="<?php echo isset($users->id) ? $users->id : ''; ?>">
         <div class="row">
             <div class="form-group col-md-4">
                 <label for="" class="col-sm-12 col-form-label">Organization Level:<span class="reqd">*</span></label>
                 <div class="col-sm-12">
-                    <?php echo form_dropdown("role_id", array("" => "Select Level") + role_lists(), isset($users->role_id) ? set_value('role_id', $users->role_id) : set_value('role_id'), 'class="form-control role" onchange="processRegionDiv();" id="role_id" data-id="c"'); ?>
+                    <?php echo form_dropdown("role_id", array("" => "Select Level") + role_lists(), isset($users->role_id) ? set_value('role_id', $users->role_id) : set_value('role_id'), 'class="form-control role" disabled onchange="processRegionDiv();" id="role_id" data-id="c"'); ?>
                     <span class="error"><?php echo form_error('role_id'); ?></span>
                 </div>
             </div>
             <div class="form-group col-md-4" id="category">
                 <label for="" class="col-sm-12 col-form-label">Role Category:<span class="reqd">*</span></label>
                 <div class="col-sm-12">
-                    <select class="form-control validate[required]" name="role_category" id="role_category">
-                        <?php if ($users->role_id == 2) { ?>
-                            <option value="1">Personnel</option><option value="2">Administration</option><option value="3">Training</option><option value="4">Academic</option><option value="5">Finance</option>
-                        <?php } ?>
-                        <?php if ($users->role_id == 3) { ?>
-                            <option value="2">Administration</option><option value="5">Finance</option><option value="4">Academic</option>
-                        <?php } ?>
-                        <?php if ($users->role_id == 4) { ?>
-                            <option value="3">Training</option>
-                        <?php } ?>
-                        <?php if ($users->role_id == 5) { ?>
-                            <option value="6">Principal</option>
-                        <?php } ?>
-                    </select> 
-
+                    <?php echo form_dropdown("role_category", array("" => "Select") + rolecategory_lists(), '', 'id="role_category" class="form-control region validate[required]" disabled ');    ?>
                     <span class="error"><?php echo form_error('role_category'); ?></span>
                 </div>
             </div>
             <div class="form-group col-md-4" id="region_div" style="display:none;">
                 <label for="" class="col-sm-12 col-form-label" id="region_label">Regions:<span class="reqd">*</span></label>
                 <div class="col-sm-12">
-                    <?php //echo form_dropdown("region", array("" => "Select Region") + region_lists(), isset($users->region) ? set_value('region', $users->region) : set_value('region'), 'class="form-control region"  id="c_region" data-id="c"'); ?>
-                    <select required class="form-control region" name="region_id" id="c_region" data-id="c">
-                        <option value="">Select Region</option>
-                    </select> 
-                    <span class="error"><?php echo form_error('region'); ?></span>
+                    <?php echo form_dropdown("region_id", array("" => "Select") + region_lists(), '', 'id="c_region" data-id="c" class="form-control region validate[required]" disabled ');    ?>
+                    <span class="error"><?php echo form_error('region_id'); ?></span>
                 </div>
             </div>
             <div class="form-group col-md-4" id="school_div" style="display:none;">
                 <label for="" class="col-sm-12 col-form-label">Schools:<span class="reqd">*</span></label>
                 <div class="col-sm-12">
-                    <select required class="form-control" onchange="getschoolcode();" name="school_id" id="c_school" data-id="c">
-                        <option value="">Select School</option>
-                    </select> 
-
+                    <?php echo form_dropdown("school_id", array("" => "Select") + school_lists(), '', 'class="form-control validate[required]"  id="c_school" data-id="c" disabled onchange="getschoolcode()" '); ?>
                     <span class="error"><?php echo form_error('school'); ?></span>
                 </div>
             </div>
@@ -95,34 +75,19 @@
             <div class="form-group col-md-4">
                 <label for="" class="col-sm-12 col-form-label">User Name: <span class="reqd">*</span></label>
                 <div class="col-sm-12">
-                    <input type="text" name="username" value="<?php echo isset($users->username) ? set_value('username', $users->username) : set_value('username'); ?>" class="form-control noSpace" maxlength="20" minlength="6" placeholder="User Name">
+                    <input type="text" name="username" value="<?php echo isset($users->username) ? set_value('username', $users->username) : set_value('username'); ?>" class="form-control noSpace" readonly maxlength="20" minlength="6" placeholder="User Name">
                     <span class="error"><?php echo form_error('username'); ?></span>
                 </div>
             </div>
             <div class="form-group col-md-4">
                 <label for="" class="col-sm-12 col-form-label">Email Id:<span class="reqd">*</span></label>
                 <div class="col-sm-12">
-                    <input type="text" name="email_id" value="<?php echo isset($users->email_id) ? set_value('email_id', $users->email_id) : set_value('email_id'); ?>" class="form-control noSpace" maxlength="20" minlength="6" placeholder="Email Id">
+                    <input type="text" name="email_id" value="<?php echo isset($users->email_id) ? set_value('email_id', $users->email_id) : set_value('email_id'); ?>" class="form-control noSpace" maxlength="40" minlength="6" placeholder="Email Id">
                     <span class="error"><?php echo form_error('email_id'); ?></span>
                     <div class="passhint">Only Official Email-Id(ex@gov.in , ex@nic.in, ex@kvs.gov.in)</div>
                 </div>
             </div>
-            <div class="form-group col-md-4">
-                <label for="" class="col-sm-12 col-form-label">Password:<span class="reqd">*</span></label>
-                <div class="col-sm-12">
-                    <input type="password" name="password" id="password" class="form-control password" value="" minlength="8" autocomplete="off" placeholder="Password">
-                    <span class="error"><?php echo form_error('password'); ?></span>
-                    <div class="passhint">Password should be of 8 characters and at least one special character, uppercase letter, lowercase letter and one number.</div>
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="" class="col-sm-12 col-form-label">Confirm Password:<span class="reqd">*</span></label>
-                <div class="col-sm-12">
-                    <input type="password" name="cpassword" id="cpassword" class="form-control password" value="" autocomplete="off"  placeholder="Confirm Password">
-                    <span class="error"><?php echo form_error('cpassword'); ?></span>
-                    <div class="passhint">Password should be of 8 characters and at least one special character, uppercase letter, lowercase letter and one number.</div>
-                </div>
-            </div>
+            
         </div>
         <div class="modal-footer text-right rg-footer">
             <div class="col-md-12">
@@ -241,7 +206,8 @@
                     data: get_csrf_token_name + '=' + get_csrf_hash + '&s_id=' + school_id,
                     type: 'POST',
                     success: function (response) {
-                        $('#kv_code').val(response.trim());
+                        var result = response.split('#');
+                        $('#kv_code').val(result[0].trim());
                         $("#kvcode_div").css("display", "block");
                     }
                 });
@@ -251,5 +217,46 @@
             }
 
         }
+        
+    // To set data
+    var id='<?php echo $this->uri->segment(4); ?>';
+    if(id){
+        $("#role_id").val("<?php echo $users->role_id;?>");
+        var role_id = '<?php echo $users->role_id;?>' ;
+        if(role_id!=0 && role_id==2)
+        {
+            $('#category').css("display", "block");
+            $("#role_category").val("<?php echo $users->role_category;?>");
+            $("#region_div").css("display", "none");
+            $("#school_div").css("display", "none");
+        }
+        if(role_id!=0 && role_id==3)
+        {
+            $('#category').css("display", "none");
+            $("#region_div").css("display", "block");
+            $("#school_div").css("display", "none");
+            $("#c_region").val("<?php echo $users->region_id;?>");
+        }
+        if(role_id!=0 && role_id==4)
+        {
+            $('#category').css("display", "none");
+            $("#region_div").css("display", "block");
+            $("#school_div").css("display", "none");
+            $("#region_label").html('ZIET<span class="reqd">*</span>');
+            $("#c_region").val("<?php echo $users->region_id;?>");
+        }
+        if(role_id!=0 && role_id==5)
+        {
+            $('#category').css("display", "none");
+            $("#category").css("display", "none");
+            $("#region_div").css("display", "block");
+            $("#school_div").css("display", "block");
+            $("#c_region").val("<?php echo $users->region_id;?>");
+            $("#c_school").val("<?php echo $users->school_id;?>").trigger("change");
+            
+        }
+        
+       
+    }
 
 </script>   
